@@ -9,15 +9,11 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "servers": [
     {
-      "url": "https://wallet-rf1.herokuapp.com"
+      "url": "https://walletserver-sys55.b4a.run"
     }
   ],
   "tags": [
@@ -69,7 +65,7 @@
         }
       }
     },
-    
+
     "/api/users/login": {
       "post": {
         "tags": ["Users"],
@@ -108,7 +104,7 @@
         }
       }
     },
-    
+
     "/api/users/logout": {
       "post": {
         "tags": ["Users"],
@@ -135,7 +131,7 @@
         }
       }
     },
-    
+
     "/api/users/current": {
       "get": {
         "tags": ["Users"],
@@ -211,7 +207,7 @@
     },
 
     "/api/transactions/": {
-        "post": {
+      "post": {
         "tags": ["Transactions"],
         "summary": "Transactions add",
         "parameters": [],
@@ -260,7 +256,7 @@
         "summary": "Transactions categories",
         "parameters": [],
         "security": [{ "Bearer": [] }],
-        
+
         "responses": {
           "200": {
             "description": "Successful operation",
@@ -383,11 +379,7 @@
     "schemas": {
       "RegistrationRequest": {
         "type": "object",
-        "required": [
-          "name",
-          "email",
-          "password"
-        ],
+        "required": ["name", "email", "password"],
         "properties": {
           "name": {
             "type": "string",
@@ -499,10 +491,10 @@
 
       "TransactionsResponse": {
         "type": "object",
-          "properties": {
-            "userTransactions": {
-              "type": "object",
-              "properties": {
+        "properties": {
+          "userTransactions": {
+            "type": "object",
+            "properties": {
               "totalTransactions": {
                 "type": "integer",
                 "description": "Transaction total",
@@ -518,70 +510,70 @@
                 "description": "User's Transactions list",
                 "items": {
                   "type": "object",
-                    "properties": {
-                      "_id": {
-                        "type": "string",
-                        "description": "Transaction id",
-                        "example": "qwerty123"
-                      },
-                      "transactionType": {
-                        "type": "boolean",
-                        "description": "Transaction type",
-                        "example": "true/false"
-                      },
-                      "sum": {
-                        "type": "integer",
-                        "description": "Transaction sum",
-                        "example": "123"
-                      },
-                      "date": {
-                        "type": "date",
-                        "description": "Transaction date",
-                        "example": "31.12.2021"
-                      },
-                      "trDay": {
-                        "type": "integer",
-                        "description": "Transaction day",
-                        "example": "31"
-                      },
-                      "trMonth": {
-                        "type": "integer",
-                        "description": "Transaction month",
-                        "example": "12"
-                      },
-                      "trYear": {
-                        "type": "integer",
-                        "description": "Transaction year",
-                        "example": "2021"
-                      },
-                      "owner":{
-                        "type": "string",
-                        "description": "Transaction owner",
-                        "example": "qwerty123"
-                      },
-                      "category":{
-                        "type": "string",
-                        "description": "Transaction category",
-                        "example": "donation"
-                      },
-                      "comment":{
-                        "type": "string",
-                        "description": "Transaction comment",
-                        "example": "git commit"
-                      },
-                      "balance": {
-                        "type": "integer",
-                        "description": "User's balance",
-                        "example": "9999999"
-                      }
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "Transaction id",
+                      "example": "qwerty123"
+                    },
+                    "transactionType": {
+                      "type": "boolean",
+                      "description": "Transaction type",
+                      "example": "true/false"
+                    },
+                    "sum": {
+                      "type": "integer",
+                      "description": "Transaction sum",
+                      "example": "123"
+                    },
+                    "date": {
+                      "type": "date",
+                      "description": "Transaction date",
+                      "example": "31.12.2021"
+                    },
+                    "trDay": {
+                      "type": "integer",
+                      "description": "Transaction day",
+                      "example": "31"
+                    },
+                    "trMonth": {
+                      "type": "integer",
+                      "description": "Transaction month",
+                      "example": "12"
+                    },
+                    "trYear": {
+                      "type": "integer",
+                      "description": "Transaction year",
+                      "example": "2021"
+                    },
+                    "owner": {
+                      "type": "string",
+                      "description": "Transaction owner",
+                      "example": "qwerty123"
+                    },
+                    "category": {
+                      "type": "string",
+                      "description": "Transaction category",
+                      "example": "donation"
+                    },
+                    "comment": {
+                      "type": "string",
+                      "description": "Transaction comment",
+                      "example": "git commit"
+                    },
+                    "balance": {
+                      "type": "integer",
+                      "description": "User's balance",
+                      "example": "9999999"
                     }
+                  }
                 }
               }
             }
           }
         }
       },
-      
+
       "AddTransactionsRequest": {
         "required": ["transactionType", "sum", "date"],
         "type": "object",
@@ -599,17 +591,17 @@
           "date": {
             "type": "string",
             "description": "Transaction date",
-            "example": "31.12.2021"            
+            "example": "31.12.2021"
           },
-          "category":{
+          "category": {
             "type": "string",
             "description": "Transaction category",
-            "example": "any" 
+            "example": "any"
           },
-          "comment":{
+          "comment": {
             "type": "string",
             "description": "Transaction comment",
-            "example": "git comit" 
+            "example": "git comit"
           }
         }
       },
@@ -617,10 +609,10 @@
       "AddTransactionsResponse": {
         "type": "object",
         "properties": {
-          "data":{
+          "data": {
             "type": "object",
             "properties": {
-              "transaction":{
+              "transaction": {
                 "type": "object",
                 "properties": {
                   "_id": {
@@ -658,20 +650,20 @@
                     "description": "Transaction year",
                     "example": "2021"
                   },
-                  "owner":{
+                  "owner": {
                     "type": "string",
                     "description": "Transaction owner",
                     "example": "qwerty123"
                   },
-                  "category":{
+                  "category": {
                     "type": "string",
                     "description": "Transaction category",
-                    "example": "any" 
+                    "example": "any"
                   },
-                  "comment":{
+                  "comment": {
                     "type": "string",
                     "description": "Transaction comment",
-                    "example": "git comit" 
+                    "example": "git comit"
                   },
                   "balance": {
                     "type": "integer",
@@ -687,10 +679,10 @@
 
       "TransactionsCategoriesResponse": {
         "type": "object",
-          "properties": {
-            "data": {
-              "type": "object",
-              "properties": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
               "categories": {
                 "type": "array",
                 "description": "Transaction categories list",
@@ -710,8 +702,8 @@
                   }
                 },
                 "example": [
-                  {"id": "123123", "name": "food"},
-                  {"id": "321321", "name": "dog"}
+                  { "id": "123123", "name": "food" },
+                  { "id": "321321", "name": "dog" }
                 ]
               }
             }
@@ -734,10 +726,10 @@
       "AddTransactionsCategoriesResponse": {
         "type": "object",
         "properties": {
-          "data":{
+          "data": {
             "type": "object",
             "properties": {
-              "category":{
+              "category": {
                 "type": "object",
                 "properties": {
                   "name": {
@@ -750,12 +742,12 @@
                     "description": "Category color",
                     "example": "#0000"
                   },
-                  "owner":{
+                  "owner": {
                     "type": "string",
                     "description": "Category owner",
                     "example": "qwerty123"
                   },
-                  "_id":{
+                  "_id": {
                     "type": "string",
                     "description": "Category id",
                     "example": "qwerty123"
@@ -773,10 +765,10 @@
           "data": {
             "type": "object",
             "properties": {
-              "statistic":{
+              "statistic": {
                 "type": "object",
                 "properties": {
-                  "name":{
+                  "name": {
                     "type": "object",
                     "description": "Name statistic",
                     "properties": {
@@ -795,7 +787,7 @@
                         "description": "Category color",
                         "example": "#0000"
                       },
-                      "_id":{
+                      "_id": {
                         "type": "string",
                         "description": "Category id",
                         "example": "qwerty123"
@@ -805,7 +797,7 @@
                 }
               }
             }
-          }  
+          }
         }
       }
     },
