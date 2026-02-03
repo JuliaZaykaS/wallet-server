@@ -13,7 +13,7 @@
   "produces": ["application/json"],
   "servers": [
     {
-      "url": "https://walletserver-sys55.b4a.run"
+      "url": "https://wallet-server-ttcy.onrender.com/"
     }
   ],
   "tags": [
